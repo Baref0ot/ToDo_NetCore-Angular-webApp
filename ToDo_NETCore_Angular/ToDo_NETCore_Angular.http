@@ -1,0 +1,6 @@
+@ToDo_NETCore_Angular_HostAddress = http://localhost:5062
+
+GET {{ToDo_NETCore_Angular_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
