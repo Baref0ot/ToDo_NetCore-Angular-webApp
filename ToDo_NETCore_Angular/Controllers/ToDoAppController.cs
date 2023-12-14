@@ -43,6 +43,39 @@ namespace ToDo_NETCore_Angular.Controllers {
             }
 
             return new JsonResult(table);
-        }
+        }// end GetNotes
+
+
+        [HttpPost]
+        [Route("AddNote")]
+        public JsonResult AddNote([FromForm] string newNote) {
+
+            // create quick query
+            string query = "insert into dbo.notes values(@newNote)";
+            DataTable table = new DataTable();
+
+            // get connection db details
+            string sqlDatasource = _configuration.GetConnectionString("ToDoAppConnection");
+
+            // setup SqlDataReader
+            SqlDataReader myReader;
+
+            using (SqlConnection myConnection = new SqlConnection(sqlDatasource)) {
+                myConnection.Open();
+
+                using (SqlCommand myCommand = new SqlCommand(query, myConnection)) {
+                    myCommand.Parameters.AddWithValue("@newNote",newNote);
+
+                    myReader = myCommand.ExecuteReader();
+                    table.Load(myReader);
+                    myReader.Close();
+                    myConnection.Close();
+                }
+            }
+
+            return new JsonResult("New note successfully Added.");
+        }// end AddNote
+
+
     }
 }
