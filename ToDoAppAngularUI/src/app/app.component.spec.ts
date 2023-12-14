@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'todoapp'`, () => {
+  it(`should have as title 'ToDoAppAngularUI'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('todoapp');
+    expect(app.title).toEqual('ToDoAppAngularUI');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, todoapp');
+    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, ToDoAppAngularUI');
   });
 });
