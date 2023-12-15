@@ -13,7 +13,7 @@ export class NoteService{
     constructor(private http: HttpClient){}
 
     // create a method to handle get request to the WebAPI that will return a Note array
-    getNotes(): Observable<Note[]> {
+    getNotes(): Observable<Note[]> {  
         return this.http.get<Note[]>(`${this.apiURL}/GetNotes`);
     }
 

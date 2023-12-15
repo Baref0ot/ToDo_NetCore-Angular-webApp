@@ -21,7 +21,7 @@ builder.Services.AddControllers()
 // Add Custom CORS policy
 builder.Services.AddCors(options => {
     options.AddPolicy(name: MyAllowedOrigins, policy => {
-        policy.WithOrigins("localhost:21094");
+        policy.WithOrigins("http://localhost:4200").AllowAnyHeader().AllowAnyMethod(); ;
     });     
 });
 
