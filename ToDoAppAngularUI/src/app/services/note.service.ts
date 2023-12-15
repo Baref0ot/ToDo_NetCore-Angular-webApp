@@ -17,9 +17,14 @@ export class NoteService{
         return this.http.get<Note[]>(`${this.apiURL}/GetNotes`);
     }
 
-    // create a method to handle http delete request via API
+    // create a method to call the http delete request via API
     deleteNote(id: number): Observable<void>{
         return this.http.delete<void>(`${this.apiURL}/DeleteNote?id=${id}`);
     }
-    
+
+    // create a method to call the http POST request via API
+    addNote(description: string): Observable<Note>{
+        return this.http.post<Note>(`${this.apiURL}/AddNote`, {description});
+    }
+
 }// end class
