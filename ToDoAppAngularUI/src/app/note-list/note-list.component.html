@@ -1,6 +1,6 @@
 <ul>
     <li *ngFor="let note of notes">
         <b> {{ note.description }} </b>
-        <button>Delete</button>
+        <button (click)="onDelete(note.id)">Delete</button>
     </li>
 </ul>

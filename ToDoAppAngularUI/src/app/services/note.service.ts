@@ -17,4 +17,9 @@ export class NoteService{
         return this.http.get<Note[]>(`${this.apiURL}/GetNotes`);
     }
 
+    // create a method to handle http delete request via API
+    deleteNote(id: number): Observable<void>{
+        return this.http.delete<void>(`${this.apiURL}/DeleteNote?id=${id}`);
+    }
+    
 }// end class

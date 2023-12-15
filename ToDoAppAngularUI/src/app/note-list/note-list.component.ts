@@ -17,12 +17,16 @@ export class NoteListComponent implements OnInit{
 
     // This is an lifecycle hook. Tells Angular that you want to preform this action/method when this component is initialized.
     ngOnInit() {
-        this.noteService.getNotes().subscribe(data => {this.notes = data;})
+        this.noteService.getNotes().subscribe(data => {this.notes = data;});
     }
 
-    // add request
-
     // delete request 
+    onDelete(id: number){
+        this.noteService.deleteNote(id).subscribe(() => {
+            this.notes = this.notes.filter(note => note.id !== id);
+        });
+    }
 
+    
     
 }// end NoteListComponent
