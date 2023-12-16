@@ -12,10 +12,12 @@ export class AddNoteComponent{
 
     constructor(private noteService: NoteService){}
 
-    onAddNote(){
+    addNote(){
         this.noteService.addNote(this.newNoteText).subscribe(note => {
+            
+            alert(note);
 
-            // clear the newNote input field after a response is recieved.
+            // clear note field
             this.newNoteText = '';
 
         });
