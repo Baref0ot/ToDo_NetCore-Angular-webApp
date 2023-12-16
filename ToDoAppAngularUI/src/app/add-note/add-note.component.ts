@@ -1,24 +1,23 @@
 import { Component } from "@angular/core";
 import { NoteService } from "../services/note.service";
-import { Note } from "../models/note.model";
 
 @Component({
     selector: 'add-note',
     templateUrl: 'add-note.component.html'
 })
 
-export class AddNote{
+export class AddNoteComponent{
     
-    newNote: string = '';
+    newNoteText: string = '';
 
     constructor(private noteService: NoteService){}
 
-    addNote(){
-        this.noteService.addNote(this.newNote).subscribe(note => {
+    onAddNote(){
+        this.noteService.addNote(this.newNoteText).subscribe(note => {
 
             // clear the newNote input field after a response is recieved.
-            this.newNote = '';
-            
+            this.newNoteText = '';
+
         });
     }// end addNote method
 

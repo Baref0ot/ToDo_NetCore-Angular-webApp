@@ -23,8 +23,14 @@ export class NoteService{
     }
 
     // create a method to call the http POST request via API
-    addNote(description: string): Observable<Note>{
-        return this.http.post<Note>(`${this.apiURL}/AddNote`, {description});
+    addNote(newNoteText: string): Observable<Note>{
+
+        // Form Data with the field "newNote" is expected by the WebAPI, attach the value of the newNoteText to a newNote field of the formData object.
+        const formData = new FormData();
+
+        formData.append(`newNote`, newNoteText)
+
+        return this.http.post<Note>(`${this.apiURL}/AddNote`, formData);
     }
 
 }// end class
