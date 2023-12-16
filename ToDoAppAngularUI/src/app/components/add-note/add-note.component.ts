@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { NoteService } from "../services/note.service";
+import { NoteService } from "../../services/note.service";
 
 @Component({
     selector: 'add-note',
