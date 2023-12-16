@@ -1,2 +1,11 @@
-<input [(ngModel)]="newNoteText" type="text" placeholder="Add a note"/>
-<button (click)="onAddNote()" >Add Note</button>
+<div class="input-group mb-3">
+    <div class="col-9">
+        <input class="form-control" [(ngModel)]="newNoteText" type="text" placeholder="Add a note" aria-describedby="basic-addon2"/>
+    </div>
+
+    <div class="col-3">
+        <div class="input-group-append">
+            <button class="btn btn-success" type="button" (click)="onAddNote()" >Add Note</button>
+        </div>
+    </div>
+</div>

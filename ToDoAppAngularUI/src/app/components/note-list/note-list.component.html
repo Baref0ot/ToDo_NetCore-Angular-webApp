@@ -1,6 +1,13 @@
-<ul>
-    <li *ngFor="let note of notes">
-        <b> {{ note.description }} </b>
-        <button (click)="onDelete(note.id)">Delete</button>
+
+<ul class="list-group">
+    <li class="list-group-item" *ngFor="let note of notes">
+        <div class="row"> 
+            <div class="col-10">
+                {{ note.description }} 
+            </div>
+            <div class="col-2">
+                <button type="button" class="btn btn-outline-danger" (click)="onDelete(note.id)">Delete</button>
+             </div>
+        </div>
     </li>
 </ul>
