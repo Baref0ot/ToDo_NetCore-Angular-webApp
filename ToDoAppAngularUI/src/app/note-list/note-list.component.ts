@@ -18,6 +18,11 @@ export class NoteListComponent implements OnInit{
     // This is an lifecycle hook. Tells Angular that you want to preform this action/method when this component is initialized.
     ngOnInit() {
         this.refreshNotes();
+
+        //subscribe to noteadded$ subject in the service. When a new note is created this method will be notified of the change.
+        this.noteService.noteAdded$.subscribe(() => {
+            this.refreshNotes(); // refresh list when a new note is added.
+        });
     }
 
     refreshNotes(){

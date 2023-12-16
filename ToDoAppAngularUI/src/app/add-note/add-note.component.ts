@@ -12,7 +12,7 @@ export class AddNoteComponent{
 
     constructor(private noteService: NoteService){}
 
-    addNote(){
+    onAddNote(){
         this.noteService.addNote(this.newNoteText).subscribe(note => {
             
             alert(note);
